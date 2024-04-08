@@ -1,0 +1,9 @@
+https://imgur.com/zikc31R
+
+Issues with the Infrastructure:
+
+Single Point of Failure (SPOF): Since all components are hosted on a single server, any failure in hardware, software, or network connectivity could result in the entire website becoming inaccessible.
+
+Downtime During Maintenance: When maintenance tasks such as deploying new code or updating server configurations are needed, the web server typically needs to be restarted, resulting in downtime for the website.
+
+Scalability Limitations: If the website experiences a sudden surge in traffic, the single server may not be able to handle the increased load effectively, leading to degraded performance or downtime. Scaling resources horizontally (adding more servers) becomes challenging with this setup.

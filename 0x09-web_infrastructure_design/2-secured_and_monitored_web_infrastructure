@@ -1,0 +1,21 @@
+https://imgur.com/jS4tF4u
+
+Explanation:
+
+Firewalls: Added to provide an additional layer of security by controlling incoming and outgoing traffic, filtering out malicious requests, and protecting against unauthorized access to the servers.
+
+HTTPS Traffic: Served over HTTPS to encrypt data transmitted between the client's browser and the server, ensuring confidentiality, integrity, and authenticity of the communication.
+
+Monitoring: Used to monitor the health, performance, and security of the infrastructure in real-time. It helps detect and mitigate issues promptly, optimize resource utilization, and ensure high availability and reliability.
+
+Monitoring Tool: The monitoring tool (Sumo Logic) collects data from monitoring clients installed on each server. It collects metrics such as CPU usage, memory usage, disk space, network traffic, application performance, etc., and provides insights and alerts for proactive maintenance and troubleshooting.
+
+Monitoring Web Server QPS: To monitor the web server's QPS (Queries Per Second), you can track the incoming HTTP/HTTPS requests at the load balancer or directly on the web server. Utilizing monitoring tools, you can set up specific queries or metrics to track the number of requests per second and analyze trends over time.
+
+Issues with the Infrastructure:
+
+Terminating SSL at Load Balancer: Termination of SSL at the load balancer level can expose decrypted data within the internal network, posing a security risk. It's essential to implement proper security measures to protect against unauthorized access to sensitive information.
+
+Single MySQL Server Accepting Writes: Having only one MySQL server capable of accepting write operations poses a single point of failure. A failure in the primary MySQL server could lead to data loss or downtime. Implementing a clustered or replicated database setup can address this issue by providing redundancy and high availability.
+
+Uniformity of Servers: Deploying servers with identical components (database, web server, application server) might lead to homogeneity, making the infrastructure vulnerable to widespread failures if a common issue affects all servers simultaneously. It's essential to diversify components and distribute workload efficiently to mitigate risks associated with uniformity.

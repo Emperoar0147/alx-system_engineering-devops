@@ -1,5 +1,21 @@
 https://imgur.com/zikc31R
 
+Explanation:
+
+Server: A server is a computer program or device that provides functionality to other devices, known as clients, over a network. In this case, it's the physical or virtual machine hosting the web infrastructure.
+
+Domain Name: A domain name is a human-readable label that corresponds to a specific IP address on the internet. It's used to access websites instead of typing IP addresses directly.
+
+DNS Record: The "www" in "www.foobar.com" is a subdomain and is typically used to specify the web server associated with the domain. It's an alias or a hostname for the main domain.
+
+Web Server: The web server (Nginx) handles HTTP requests from clients and serves static content or forwards dynamic requests to the application server for processing.
+
+Application Server: The application server executes the application's business logic, interacts with the database, and generates dynamic content to be returned to the client via the web server.
+
+Database: The database (MySQL) stores and manages the website's data. It allows for efficient storage, retrieval, and manipulation of structured data.
+
+Communication: The server communicates with the user's computer via the HTTP protocol over the internet. When a user requests the website (www.foobar.com), their browser sends an HTTP request to the server, which then responds with the requested web page.
+
 Issues with the Infrastructure:
 
 Single Point of Failure (SPOF): Since all components are hosted on a single server, any failure in hardware, software, or network connectivity could result in the entire website becoming inaccessible.

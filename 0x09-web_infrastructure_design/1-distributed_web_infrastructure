@@ -1,0 +1,31 @@
+https://imgur.com/zgr1ZJk
+
+Explanation:
+
+Load Balancer (HAProxy): Added to distribute incoming traffic across multiple servers. It improves scalability by evenly distributing the load and enhances reliability by redirecting traffic away from failed servers.
+
+Distribution Algorithm: The load balancer is configured with a round-robin distribution algorithm. It works by sequentially sending requests to each server in a rotation, ensuring that each server receives an equal share of the traffic.
+
+Active-Active vs. Active-Passive Setup:
+
+Active-Active: Both servers are actively serving traffic simultaneously. Each server handles a portion of the incoming requests, providing redundancy and improved performance.
+Active-Passive: One server actively serves traffic while the other remains on standby. In case of a failure, the passive server takes over to ensure continuous service.
+Database Primary-Replica Cluster: The MySQL database is configured in a Primary-Replica (Master-Slave) cluster setup. The Primary node handles write operations and replicates data changes to the Replica node(s), which serve read requests.
+
+Primary vs. Replica Node:
+
+Primary Node: Handles write operations, such as inserting, updating, or deleting data from the database. It's responsible for maintaining the integrity of the data.
+Replica Node: Serves read requests from clients. It receives data changes replicated from the Primary node and ensures high availability and scalability for read-heavy workloads.
+Issues with the Infrastructure:
+
+Single Points of Failure (SPOF):
+
+Load Balancer: If the load balancer fails, incoming traffic won't be distributed effectively, leading to potential downtime.
+Any individual server failure could disrupt service for clients accessing the website.
+Security Issues:
+
+Lack of Firewall: Without a firewall, the servers are vulnerable to unauthorized access or malicious attacks.
+No HTTPS: Transmitting data over HTTP instead of HTTPS exposes sensitive information to potential eavesdropping or interception.
+No Monitoring:
+
+Without monitoring tools in place, it's challenging to identify performance issues, potential security threats, or server failures promptly. Monitoring helps in proactive maintenance and troubleshooting.

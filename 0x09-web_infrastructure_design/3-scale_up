@@ -1,0 +1,21 @@
+https://imgur.com/MfKM4R5
+
+Explanation:
+
+Additional Load Balancer (HAProxy Cluster): Configuring HAProxy as a cluster provides high availability and redundancy for load balancing. It ensures uninterrupted service even if one load balancer fails, as the other one can seamlessly take over. Additionally, using SSL termination at the load balancer level enhances security and offloads encryption/decryption tasks from backend servers.
+
+Additional Server for each Component: Splitting components onto their own servers improves security, isolation, and resource management. It allows for better scalability and maintenance as each component can be scaled independently based on workload demands.
+
+Firewalls: Firewalls are added to control and secure network traffic, preventing unauthorized access to the servers and sensitive data. Each server has its own firewall to enforce access control policies and protect against malicious activities.
+
+SSL Certificate (HTTPS): Serving traffic over HTTPS encrypts data transmitted between the client's browser and the server, ensuring confidentiality, integrity, and authenticity of the communication. It protects sensitive information from eavesdropping and interception.
+
+Monitoring: Monitoring is used to track the health, performance, and security of the infrastructure in real-time. It helps detect and mitigate issues promptly, optimize resource utilization, and ensure high availability and reliability. Monitoring clients collect and send system and application metrics to the monitoring tool (e.g., Sumo Logic), which analyzes and visualizes the data for insights and alerts.
+
+Issues with the Infrastructure:
+
+Terminating SSL at Load Balancer Level: Terminating SSL at the load balancer level can expose decrypted data within the internal network, posing a security risk. It's essential to implement proper security measures to protect against unauthorized access to sensitive information.
+
+Single MySQL Server Accepting Writes: Having only one MySQL server capable of accepting write operations poses a single point of failure. A failure in the primary MySQL server could lead to data loss or downtime. Implementing a clustered or replicated database setup can address this issue by providing redundancy and high availability.
+
+Uniformity of Servers: Deploying servers with identical components (database, web server, application server) might lead to homogeneity, making the infrastructure vulnerable to widespread failures if a common issue affects all servers simultaneously. It's essential to diversify components and distribute workload efficiently to mitigate risks associated with uniformity.

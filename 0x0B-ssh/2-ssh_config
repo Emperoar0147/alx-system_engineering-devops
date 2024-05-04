@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This script configures the SSH client to use the private key and refuse password authentication
+
+# Create or update SSH client configuration
+cat << EOF > ~/.ssh/config
+Host *
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+EOF
+
+# Make sure permissions are set correctly
+chmod 600 ~/.ssh/config
+
+echo "SSH client configuration updated successfully."

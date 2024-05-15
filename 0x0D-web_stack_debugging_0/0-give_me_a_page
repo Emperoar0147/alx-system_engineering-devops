@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# Start Apache and make it return a page containing "Hello Holberton"
+
+# Update package index
+apt-get update
+
+# Install Apache
+apt-get install -y apache2
+
+# Start Apache
+service apache2 start
+
+# Create index.html file containing "Hello Holberton"
+echo "Hello Holberton" > /var/www/html/index.html

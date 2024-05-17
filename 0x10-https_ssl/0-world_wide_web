@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# This script displays DNS information about subdomains of a given domain.
+
+# Function to display DNS information
+display_info() {
+  local domain=$1
+  local subdomain=$2
+
+  # Query DNS record
+  result=$(dig "${subdomain}.${domain}" +short)
+
+  # Check if result is empty
+  if [ -z "$result" ]; then
+    echo "No DNS record found for ${subdomain}.${domain}"
+  else
+    # Determine record type and destination
+    record_type="A"  # Assuming A record for this example
+    echo "The subdomain ${subdomain} is a ${record_type} record and points to ${result}"
+  fi
+}
+
+# Main script logic
+main() {
+  local domain=$1
+  local subdomain=$2
+
+  # Check if domain is provided
+  if [ -z "$domain" ]; then
+    echo "Usage: $0 domain [subdomain]"
+    exit 1
+  fi
+
+  # List of default subdomains
+  subdomains=("www" "lb-01" "web-01" "web-02")
+
+  # If a specific subdomain is provided
+  if [ -n "$subdomain" ]; then
+    display_info "$domain" "$subdomain"
+  else
+    # Display info for each default subdomain
+    for sub in "${subdomains[@]}"; do
+      display_info "$domain" "$sub"
+    done
+  fi
+}
+
+# Ignore shellcheck for specific warning
+# shellcheck disable=SC2086
+
+# Execute main function with provided arguments
+main "$@"

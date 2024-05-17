@@ -28,20 +28,20 @@ defaults
     errorfile 503 /etc/haproxy/errors/503.http
     errorfile 504 /etc/haproxy/errors/504.http
 
-frontend emperoar_http-in
+frontend http-in
     bind *:80
     bind *:443 ssl crt /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem key /etc/letsencrypt/live/www.yourdomain.com/privkey.pem
     http-request redirect scheme https unless { ssl_fc }
     default_backend servers
 
-backend emperoar_servers
+backend servers
     server web-01 192.168.1.10:80 check
     server web-02 192.168.1.11:80 check
 
-frontend emperoar_https-in
+frontend https-in
     bind *:443 ssl crt /etc/letsencrypt/live/www.yourdomain.com/fullchain.pem key /etc/letsencrypt/live/www.yourdomain.com/privkey.pem
     default_backend servers
 
-backend emperoar_servers
+backend servers
     server web-01 192.168.1.10:80 check
     server web-02 192.168.1.11:80 check

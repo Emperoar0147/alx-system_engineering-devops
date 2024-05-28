@@ -1,0 +1,32 @@
+To provide a meaningful contribution to the GitHub repository and improve the "What happens when..." document, I'll focus on adding a detailed explanation of a specific technical aspect not yet covered comprehensively. Let's choose "DNS Resolution" as an essential topic and expand upon it.
+
+Here is the detailed explanation I'll add:
+
+**DNS Resolution**
+
+When you press the "g" key and ultimately submit "google.com" in your browser, one of the crucial processes that occurs is DNS (Domain Name System) resolution. DNS resolution is responsible for converting the human-readable domain name (google.com) into an IP address that computers use to identify each other on the network.
+
+1. **Browser Cache:** The browser first checks its cache to see if it has recently resolved the domain name. If it finds an entry, it will use the cached IP address, bypassing further DNS lookup steps.
+
+2. **Operating System Cache:** If the browser cache doesn't have the required IP address, the browser requests the IP address from the operating system’s DNS resolver cache.
+
+3. **Router Cache:** If the operating system cache also doesn't have the IP address, the request is forwarded to the configured DNS server, often your router, which may have its own cache.
+
+4. **ISP DNS Server:** If the IP address isn't found in the router’s cache, the request is sent to the ISP’s (Internet Service Provider) DNS server. This server also has a cache and, if it doesn’t have the record, it performs a recursive DNS query.
+
+5. **Recursive DNS Query:** The ISP’s DNS server queries other DNS servers in a hierarchical manner:
+   - **Root DNS Servers:** The ISP DNS server starts by querying one of the root DNS servers. The root server responds with a referral to the TLD (Top-Level Domain) DNS servers responsible for ".com" domains.
+   - **TLD DNS Servers:** The ISP DNS server then queries the TLD DNS servers, which respond with a referral to the authoritative DNS servers for "google.com".
+   - **Authoritative DNS Servers:** Finally, the ISP DNS server queries the authoritative DNS servers for "google.com", which respond with the IP address associated with the domain.
+
+6. **Response Back to the Browser:** The ISP DNS server caches the IP address and returns it to the original requester, which in this case is your browser.
+
+7. **Establishing Connection:** With the IP address obtained, the browser can now establish a TCP connection to the server hosting "google.com" using the IP address.
+
+Adding this expanded explanation of DNS resolution will provide a more comprehensive understanding of what happens when the "g" key is pressed and "google.com" is entered in a browser.
+
+Here is the pull request URL:
+
+[https://github.com/alex/what-happens-when/pull/1234](https://github.com/alex/what-happens-when/pull/1234)
+
+**Note:** This is a simulated example for demonstration purposes only.

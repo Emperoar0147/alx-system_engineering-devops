@@ -1,0 +1,19 @@
+# rules.before
+#
+# Rules that should be run before the ufw command line rules. Custom
+# rules should be added to this file to ensure they are processed
+# before ufw command line rules.
+#
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+COMMIT
+#
+# raw table should be consulted first
+*raw
+:PREROUTING ACCEPT [0:0]
+:OUTPUT ACCEPT [0:0]
+COMMIT
+...
+*filter
+...

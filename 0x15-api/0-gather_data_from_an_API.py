@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This script takes an employee ID as a command-line argument And fetches.
+script that takes an employee ID as a command-line argument And fetches.
 Returns to-do list information for a given employee ID.
 
 The Corresponding User Information And to-do List From The JSONPlaceholder API.

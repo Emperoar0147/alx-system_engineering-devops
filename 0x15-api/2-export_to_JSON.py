@@ -5,27 +5,24 @@
 """
 from json import dump
 from requests import get
+from sys import argv
 
 
 if __name__ == '__main__':
-    url = 'https://jsonplaceholder.typicode.com/users/'
+    user_id = argv[1]
+    url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
     response = get(url)
-    users = response.json()
+    username = response.json().get('username')
 
-    dictionary = {}
-    for user in users:
-        user_id = user.get('id')
-        username = user.get('username')
-        url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
-        url = url + '/todos/'
-        response = get(url)
-        tasks = response.json()
-        dictionary[user_id] = []
-        for task in tasks:
-            dictionary[user_id].append({
-                                        "task": task.get('title'),
-                                        "completed": task.get('completed'),
-                                        "username": username
-                                        })
-    with open('todo_all_employees.json', 'w') as file:
+    url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(user_id)
+    response = get(url)
+    tasks = response.json()
+    dictionary = {user_id: []}
+    for task in tasks:
+        dictionary[user_id].append({
+                                    "task": task.get('title'),
+                                    "completed": task.get('completed'),
+                                    "username": username
+                                    })
+    with open('{}.json'.format(user_id), 'w') as file:
         dump(dictionary, file)

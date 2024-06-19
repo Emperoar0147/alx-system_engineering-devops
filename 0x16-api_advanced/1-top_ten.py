@@ -7,7 +7,7 @@ import requests
 
 
 def top_ten(subreddit):
-    """ Print the top ten hot posts """
+    """ Print top 10 hot posts """
     if subreddit:
         url = f'https://www.reddit.com/r/{subreddit}/hot.json?limit=10'
         headers = {'User-Agent': 'Chrome'}

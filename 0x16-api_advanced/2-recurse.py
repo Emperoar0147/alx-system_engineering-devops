@@ -9,8 +9,8 @@ import requests
 
 def recurse(subreddit, hot_list=[], after=None):
     """
-    Recursive function to query the Reddit API and return titles of
-    all hot articles.
+    A recursive function to query the Reddit API and return titles
+    of all hot articles.
     """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {'User-Agent': 'Chrome'}

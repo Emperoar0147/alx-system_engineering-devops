@@ -1,4 +1,4 @@
-# This Puppet manifest configures Nginx to handle higher load and reduce failed requests.
+# Configures Nginx to handle higher load and reduce failed requests.
 
 # It increases the ULIMIT of the default file
 exec { 'fix--for-nginx':

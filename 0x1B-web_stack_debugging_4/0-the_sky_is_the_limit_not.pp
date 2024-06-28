@@ -1,10 +1,11 @@
 # This Puppet manifest configures Nginx to handle higher load and reduce failed requests.
 exec { 'fix--for-nginx':
-  command => '/usr/sbin/nginx -s reload',
-}
+  command => 'sed -i "s/15/4096/" /etc/default/nginx',
+  path    => '/usr/local/bin/:/bin/'
+}  ->
 
-file { '/etc/nginx/nginx.conf':
-  ensure  => file,
-  content => template('nginx/nginx.conf.erb'),
-  notify  => Exec['fix--for-nginx'],
+# Restart Nginx
+exec { 'nginx-restart':
+  command => 'nginx restart',
+  path    => '/etc/init.d/'
 }
